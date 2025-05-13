@@ -46,3 +46,13 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.row {
+  display: flex;
+  flex: 1;
+}
+
+.cell {
+  flex: 1;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
