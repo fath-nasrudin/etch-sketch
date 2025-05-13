@@ -1,6 +1,11 @@
 function createCell() {
   const cell = document.createElement("div");
   cell.classList.add("cell");
+
+  // attach event listener
+  cell.addEventListener("mouseover", (e) => {
+    e.target.style.backgroundColor = "#333";
+  });
   return cell;
 }
 
