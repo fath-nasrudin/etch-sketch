@@ -9,16 +9,14 @@ function createCell() {
   return cell;
 }
 
-function generateBoard() {
+function generateBoard(size = 16) {
   const board = document.querySelector(".board");
   board.textContent = "";
 
-  const SIZE = 16;
-
-  for (let rowIndex = 0; rowIndex < SIZE; rowIndex++) {
+  for (let rowIndex = 0; rowIndex < size; rowIndex++) {
     const row = document.createElement("div");
     row.classList.add("row");
-    for (let colIndex = 0; colIndex < SIZE; colIndex++) {
+    for (let colIndex = 0; colIndex < size; colIndex++) {
       const cell = createCell();
       row.append(cell);
     }
@@ -26,4 +24,19 @@ function generateBoard() {
   }
 }
 
-generateBoard();
+function appendEvents() {
+  // append button event
+  const changeSizeButton = document.querySelector(".js-change-size");
+  changeSizeButton.addEventListener("click", () => {
+    const newSize = Number(window.prompt("Change size, 1 - 100"));
+    if (newSize > 100 || newSize < 1 || isNaN(newSize)) return;
+    generateBoard(newSize);
+  });
+}
+
+function main() {
+  appendEvents();
+  generateBoard();
+}
+
+main();
