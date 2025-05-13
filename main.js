@@ -1,3 +1,9 @@
+function createCell() {
+  const cell = document.createElement("div");
+  cell.classList.add("cell");
+  return cell;
+}
+
 function generateBoard() {
   const board = document.querySelector(".board");
   board.textContent = "";
@@ -8,8 +14,7 @@ function generateBoard() {
     const row = document.createElement("div");
     row.classList.add("row");
     for (let colIndex = 0; colIndex < SIZE; colIndex++) {
-      const cell = document.createElement("div");
-      cell.classList.add("cell");
+      const cell = createCell();
       row.append(cell);
     }
     board.append(row);
